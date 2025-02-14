@@ -3,8 +3,37 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-<h1>Welcome to Home Page</h1>
-<a href="@Url.Action("About", "Home")">
-    <button>About Us</button>
-</a>
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DriveNow - Închirieri Auto Rapide și Fiabile</title>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/wwwroot/Site.css")">
+
+</head>
+<body>
+    <header>
+        <h1>DriveNow</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="profil.html">Profil</a></li>
+                <li><a href="autentificare.html">Login/Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Închiriază rapid și ușor acum</h2>
+            <p>Alege dintr-o gamă variată de mașini la cele mai bune prețuri.</p>
+            <a href="masini.html" class="button">Vezi Mașini</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 DriveNow. Toate drepturile rezervate.</p>
+    </footer>
+</body>
+</html>
