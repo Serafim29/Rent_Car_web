@@ -58,8 +58,119 @@ main {
     background: linear-gradient(to right, #4facfe, #00f2fe);
     color: white;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 10px;
 }
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #333;
+    color: white;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+/*Login/Sing Up syle*/
+.button {
+    background-color: #4CAF50; 
+    color: white; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 20px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+}
+
+    .button:hover {
+        background-color: #45a049; 
+    }
+
+/* Wrapper pentru centrul paginii */
+.profile-wrapper {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    height: 100vh; 
+    margin: 0; 
+    flex-direction: column; 
+}
+
+/* Profile container styles */
+.profile-container {
+    background: ;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px; 
+    margin-bottom: 15px; 
+}
+
+    /* Title (h2) styling inside profile */
+    .profile-container h2 {
+        margin-bottom: 20px;
+        font-size: 24px;
+    }
+
+    /* Username styling inside profile */
+    .profile-container .username {
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    /* Email styling inside profile */
+    .profile-container .email {
+        margin-bottom: 10px;
+    }
+
+    /* Button inside profile */
+    .profile-container .button {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 16px;
+        width: 100%; 
+    }
+
+        /* Button hover effect */
+        .profile-container .button:hover {
+            background-color: #0056b3;
+        }
+
+/* Login container styles */
+.login-container {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+}
+
+    .login-container h2 {
+        margin-bottom: 20px;
+    }
+
+/* Input group styles for login */
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+    .input-group label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .input-group input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+    }
 
 footer {
     text-align: center;
