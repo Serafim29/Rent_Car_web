@@ -23,5 +23,12 @@ namespace Rent_Car_web.Controllers
         {
             return View();
         }
+
+        public ActionResult Term()
+        {
+            return View();
+        }
+
+
     }
 }

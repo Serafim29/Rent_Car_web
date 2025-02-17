@@ -10,7 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DriveNow - Închirieri Auto Rapide și Fiabile</title>
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/wwwroot/Site.css")">
-  
 </head>
 <body>
     <header>
@@ -18,24 +17,38 @@
         <nav>
             <ul>
                 <li><a href="Index">Home</a></li>
-                <li><a href="Masini">Mașini</a></li>
+                <li><a href="Masini disponibile care sunt">Mașini</a></li>
+                <li><a href="Pagina specificațiile mașinii, imagini">Car Details</a></li>
                 <li><a href="Login">Login/Sign Up</a></li>
+                <li><a href="Pagina de Plată">Payment Page</a></li>
+                <li><a href="Pagina de Rezervare">Booking Page</a></li>
                 <li><a href="Despre">About Us</a></li>
                 <li><a href="Contacte">Contacts</a></li>
+                <li><a href="Pagină unde administratorul poate vedea toate rezervările și utilizatorii.">Admin Dashboard</a></li>
+                <li><a href="Gestionare Mașinilor (Admin Only)">Manage Cars</a></li>
+                <li><a href="Term">Terms & Conditions</a></li>
             </ul>
         </nav>
     </header>
 
+
     <main>
-        <section>
+        <section class="hero-section">
             <h2>Închiriază rapid și ușor acum</h2>
             <p>Alege dintr-o gamă variată de mașini la cele mai bune prețuri.</p>
-            <a href="masini.html" class="button">Vezi Mașini</a>
+            <button class="scroll-button" onclick="scrollToMasini()">↓ Vezi </button>
         </section>
+
+        <section id="masini-recomandate">
+            <h3>Mașini Recomandate</h3>
+            <!-- Aici vin masinile recomandate -->
+        </section>
+
     </main>
 
     <footer>
-        <p>&copy; 2025 DriveNow. Toate drepturile rezervate.</p>
+        <p>&copy;2025 DriveNow. Toate drepturile rezervate.</p>
     </footer>
 </body>
 </html>
+
