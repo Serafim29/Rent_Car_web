@@ -1,4 +1,5 @@
-﻿body {
+﻿> Jovani💪:
+body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -69,6 +70,7 @@ footer {
     width: 100%;
     bottom: 0;
 }
+
 /*Login/Sing Up syle*/
 .button {
     background: linear-gradient(to right, #4facfe, #00f2fe);
@@ -184,10 +186,11 @@ footer {
 
 .success-container {
     display: none;
-    text-align: center; 
-    margin-top: 20vh; 
+    text-align: center;
+    margin-top: 20vh;
+    .success-message
 
-.success-message {
+{
     font-size: 24px;
     font-weight: bold;
     color: green;
@@ -216,6 +219,80 @@ footer {
         background-color: darkblue;
     }
 
+
+
+/*Registrer */
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Asigură centrare verticală */
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.registration-container, .success-container {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+    width: 100%; /* Asigură că inputurile sunt aliniate corect */
+}
+
+    .input-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: #555;
+        font-weight: 500;
+    }
+
+    .input-group input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+
+.button {
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    color: white;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 10px;
+    transition: transform 0.2s;
+}
+
+.success-container {
+    display: none;
+}
+
+
 /* Term & Conditions */
 
 .terms-container {
@@ -233,31 +310,31 @@ footer {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-    .terms-section h2 {
-        color: #333;
-        margin-bottom: 15px;
-        font-size: 1.5em;
-        border-bottom: 2px solid #ddd;
-        padding-bottom: 10px;
-    }
+.terms-section h2 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+}
 
-    .terms-section p {
-        line-height: 1.6;
-        color: #444;
-        margin-bottom: 15px;
-    }
+.terms-section p {
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 15px;
+}
 
-    .terms-section ul {
-        list-style-type: disc;
-        margin-left: 20px;
-        margin-bottom: 15px;
-    }
+.terms-section ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
 
-    .terms-section li {
-        margin-bottom: 10px;
-        line-height: 1.4;
-        color: #444;
-    }
+.terms-section li {
+    margin-bottom: 10px;
+    line-height: 1.4;
+    color: #444;
+}
 
 header {
     background-color: #2c3e50;
@@ -294,5 +371,3 @@ footer {
         font-size: 2em;
     }
 }
-
-
