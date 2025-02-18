@@ -29,6 +29,10 @@ namespace Rent_Car_web.Controllers
             return View();
         }
 
+        public ActionResult Register()
+        {
+            return View();
+        }
 
     }
 }
