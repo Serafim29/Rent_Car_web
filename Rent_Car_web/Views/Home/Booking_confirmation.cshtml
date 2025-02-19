@@ -1,0 +1,117 @@
+﻿
+@{
+    ViewBag.Title = "Booking_confirmation";
+}
+
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmare Rezervare</title>
+    <link rel="stylesheet" href="@Url.Content("~/Content/Site.css")">
+</head>
+<body>
+    <div class="container">
+        <div class="confirmation-header">
+            <div class="success-message">
+                <div class="success-icon">✓</div>
+                <h1>Rezervare Confirmată!</h1>
+                <p>Rezervarea dumneavoastră a fost procesată cu succes</p>
+            </div>
+            <div class="booking-reference">
+                <p>Număr Rezervare: <strong>@Model.BookingReference</strong></p>
+                <p>Data Rezervării: @Model.BookingDate.ToString("dd/MM/yyyy HH:mm")</p>
+            </div>
+        </div>
+
+        <div class="confirmation-content">
+            <div class="main-details">
+                <div class="car-details">
+                    <h2>Detalii Mașină</h2>
+                    <div class="car-info">
+                        <img src="@Model.CarImage" alt="@Model.CarName" class="car-image">
+                        <div class="details">
+                            <h3>@Model.CarName</h3>
+                            <p><strong>Model:</strong> @Model.CarModel</p>
+                            <p><strong>An:</strong> @Model.CarYear</p>
+                            <p><strong>Culoare:</strong> @Model.CarColor</p>
+                            <p><strong>Număr înmatriculare:</strong> @Model.LicensePlate</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rental-details">
+                    <h2>Detalii Închiriere</h2>
+                    <div class="rental-info">
+                        <div class="pickup-details">
+                            <h3>Preluare</h3>
+                            <p><strong>Data:</strong> @Model.StartDate.ToString("dd/MM/yyyy")</p>
+                            <p><strong>Ora:</strong> @Model.StartDate.ToString("HH:mm")</p>
+                            <p><strong>Locație:</strong> @Model.PickupLocation</p>
+                        </div>
+                        <div class="return-details">
+                            <h3>Returnare</h3>
+                            <p><strong>Data:</strong> @Model.EndDate.ToString("dd/MM/yyyy")</p>
+                            <p><strong>Ora:</strong> @Model.EndDate.ToString("HH:mm")</p>
+                            <p><strong>Locație:</strong> @Model.ReturnLocation</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="extras-section">
+                    <h2>Extra Opțiuni Selectate</h2>
+                    <ul class="extras-list">
+                        @foreach (var extra in Model.Extras)
+                        {
+                            <li>@extra.Name - @extra.Price lei</li>
+                        }
+                    </ul>
+                </div>
+
+                <div class="price-summary">
+                    <h2>Sumar Preț</h2>
+                    <div class="price-details">
+                        <p>Preț de bază (@Model.Duration zile): <span>@Model.BasePrice lei</span></p>
+                        <p>Extra opțiuni: <span>@Model.ExtrasPrice lei</span></p>
+                        <p class="total">Total plătit: <span>@Model.TotalPrice lei</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="customer-details">
+                <h2>Detalii Client</h2>
+                <div class="customer-info">
+                    <p><strong>Nume:</strong> @Model.CustomerName</p>
+                    <p><strong>Email:</strong> @Model.CustomerEmail</p>
+                    <p><strong>Telefon:</strong> @Model.CustomerPhone</p>
+                </div>
+            </div>
+
+            <div class="important-info">
+                <h2>Informații Importante</h2>
+                <ul>
+                    <li>Vă rugăm să prezentați acest document la preluarea mașinii</li>
+                    <li>Este necesară prezentarea permisului de conducere valid</li>
+                    <li>Mașina va fi predată cu rezervorul plin</li>
+                    <li>Verificați mașina la preluare și semnalați orice deteriorare</li>
+                </ul>
+            </div>
+
+            <div class="action-buttons">
+                <button onclick="window.print()" class="print-button">
+                    Printează Confirmarea
+                </button>
+                <a href="@Url.Action("DownloadPDF", "Booking", new { id = Model.BookingReference })"
+                   class="download-button">
+                    Descarcă PDF
+                </a>
+                <a href="@Url.Action("Index", "Home")" class="home-button">
+                    Înapoi la Pagina Principală
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

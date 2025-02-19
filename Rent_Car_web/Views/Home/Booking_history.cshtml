@@ -1,0 +1,138 @@
+﻿
+@{
+    ViewBag.Title = "Booking_history";
+}
+
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Istoric Rezervări</title>
+    <link rel="stylesheet" href="@Url.Content("~/Content/Site.css")">
+</head>
+<body>
+    <div class="container">
+        <div class="history-header">
+            <h1>Istoricul Rezervărilor Tale</h1>
+            <div class="filter-section">
+                <select id="statusFilter" class="filter-dropdown">
+                    <option value="all">Toate rezervările</option>
+                    <option value="active">Active</option>
+                    <option value="completed">Finalizate</option>
+                    <option value="cancelled">Anulate</option>
+                </select>
+                <div class="date-filters">
+                    <input type="date" id="startDate" class="date-input">
+                    <span>până la</span>
+                    <input type="date" id="endDate" class="date-input">
+                </div>
+                <button id="applyFilters" class="filter-button">Aplică Filtre</button>
+            </div>
+        </div>
+
+        <div class="bookings-list">
+            @foreach (var booking in Model.Bookings)
+            {
+                <div class="booking-card @booking.Status.ToLower()">
+                    <div class="booking-header">
+                        <div class="booking-info">
+                            <h2>@booking.CarName</h2>
+                            <span class="booking-reference">Ref: @booking.BookingReference</span>
+                        </div>
+                        <div class="booking-status">
+                            <span class="status-badge @booking.Status.ToLower()">
+                                @booking.Status
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="booking-details">
+                        <div class="car-preview">
+                            <img src="@booking.CarImage" alt="@booking.CarName">
+                            <div class="car-specs">
+                                <p><strong>Model:</strong> @booking.CarModel</p>
+                                <p><strong>An:</strong> @booking.CarYear</p>
+                            </div>
+                        </div>
+
+                        <div class="rental-period">
+                            <div class="pickup">
+                                <h3>Preluare</h3>
+                                <p>@booking.StartDate.ToString("dd/MM/yyyy HH:mm")</p>
+                                <p>@booking.PickupLocation</p>
+                            </div>
+                            <div class="return">
+                                <h3>Returnare</h3>
+                                <p>@booking.EndDate.ToString("dd/MM/yyyy HH:mm")</p>
+                                <p>@booking.ReturnLocation</p>
+                            </div>
+                        </div>
+
+                        <div class="price-info">
+                            <p class="total-price">@booking.TotalPrice lei</p>
+                            <p class="duration">@booking.Duration zile</p>
+                        </div>
+                    </div>
+
+                    <div class="booking-actions">
+                        <a href="@Url.Action("Details", "Booking", new { id = booking.Id })"
+                           class="action-button view">
+                            Vezi Detalii
+                        </a>
+
+                        @if (booking.CanBeModified)
+                        {
+                            <a href="@Url.Action("Modify", "Booking", new { id = booking.Id })"
+                               class="action-button modify">
+                                Modifică
+                            </a>
+                        }
+
+                        @if (booking.CanBeCancelled)
+                        {
+                            <button onclick="confirmCancellation(@booking.Id)"
+                                    class="action-button cancel">
+                                Anulează
+                            </button>
+                        }
+
+                        @if (booking.Status == "Completed")
+                        {
+                            <a href="@Url.Action("AddReview", "Booking", new { id = booking.Id })"
+                               class="action-button review">
+                                Adaugă Review
+                            </a>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+
+        @if (!Model.Bookings.Any())
+        {
+            <div class="no-bookings">
+                <p>Nu ai nicio rezervare în istoric.</p>
+                <a href="@Url.Action("Index", "Cars")" class="browse-cars-button">
+                    Caută Mașini Disponibile
+                </a>
+            </div>
+        }
+    </div>
+
+    <!-- Modal pentru confirmare anulare -->
+    <div id="cancellationModal" class="modal">
+        <div class="modal-content">
+            <h2>Confirmare Anulare Rezervare</h2>
+            <p>Ești sigur că vrei să anulezi această rezervare?</p>
+            <div class="modal-actions">
+                <button id="confirmCancel" class="modal-button confirm">Da, Anulează</button>
+                <button id="cancelCancel" class="modal-button cancel">Nu, Păstrează</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/js/booking-history.js"></script>
+</body>
+</html>
+

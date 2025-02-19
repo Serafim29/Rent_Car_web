@@ -38,5 +38,25 @@ namespace Rent_Car_web.Controllers
         {
             return View();
         }
+
+        public ActionResult Bookingpage()
+        {
+            return View();
+        }
+
+        public ActionResult Payment_page()
+        {
+            return View();
+        }
+
+        public ActionResult Booking_confirmation()
+        {
+            return View();
+        }
+
+        public ActionResult Booking_history()
+        {
+            return View();
+        }
     }
 }

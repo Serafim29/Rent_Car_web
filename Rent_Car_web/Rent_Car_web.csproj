@@ -87,6 +87,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\team1.jpg" />
+    <Content Include="Content\images\team2.jpg" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
@@ -110,6 +112,10 @@
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Home\Term.cshtml" />
     <Content Include="Views\Home\Masini.cshtml" />
+    <Content Include="Views\Home\Bookingpage.cshtml" />
+    <Content Include="Views\Home\Payment_page.cshtml" />
+    <Content Include="Views\Home\Booking_confirmation.cshtml" />
+    <Content Include="Views\Home\Booking_history.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

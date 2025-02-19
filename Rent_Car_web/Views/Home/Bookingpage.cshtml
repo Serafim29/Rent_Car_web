@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "Bookingpage";
+}
+
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezervare Mașină</title>
+    <link rel="stylesheet" href="@Url.Content("~/Content/Site.css")">
+</head>
+<body>
+    <div class="container">
+        <div class="booking-header">
+            <h1>Rezervare Mașină</h1>
+            <p>Completați detaliile pentru a rezerva mașina dorită</p>
+        </div>
+
+        <div class="booking-content">
+            <div class="car-details">
+                <img src="@Model.CarImage" alt="@Model.CarName" class="car-image">
+                <h2>@Model.CarName</h2>
+                <div class="car-specs">
+                    <p><strong>Model:</strong> @Model.CarModel</p>
+                    <p><strong>An:</strong> @Model.CarYear</p>
+                    <p><strong>Preț pe zi:</strong> @Model.PricePerDay lei</p>
+                </div>
+            </div>
+
+            <form asp-action="CreateBooking" method="post" class="booking-form">
+                <input type="hidden" asp-for="CarId" />
+
+                <div class="form-group">
+                    <label asp-for="StartDate">Data începerii</label>
+                    <input type="text" asp-for="StartDate" class="datepicker" required>
+                    <span asp-validation-for="StartDate" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="EndDate">Data returnării</label>
+                    <input type="text" asp-for="EndDate" class="datepicker" required>
+                    <span asp-validation-for="EndDate" class="text-danger"></span>
+                </div>
+
+                <div class="extras">
+                    <h3>Extra opțiuni</h3>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="insurance" name="Extras" value="insurance">
+                        <label for="insurance">Asigurare suplimentară (+50 lei/zi)</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="gps" name="Extras" value="gps">
+                        <label for="gps">GPS (+20 lei/zi)</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="childSeat" name="Extras" value="childSeat">
+                        <label for="childSeat">Scaun copil (+30 lei/zi)</label>
+                    </div>
+                </div>
+
+                <div class="price-summary">
+                    <h3>Sumar preț</h3>
+                    <div class="price-details">
+                        <p>Preț de bază: <span id="basePrice">0</span> lei</p>
+                        <p>Extra opțiuni: <span id="extrasPrice">0</span> lei</p>
+                        <p class="total">Total: <span id="totalPrice">0</span> lei</p>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-button">Continuă spre plată</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
